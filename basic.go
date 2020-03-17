@@ -83,6 +83,7 @@ func triangle() {
 /**
 常量的定义 用关键字 const
 可以定义 类型  也可以不用定义类型
+也就是说  在对变量进行运算时  仅仅是进行了字符替换
 不定义类型的情况下  a b 可以做int 也可以做 float
 */
 func contants() {
@@ -98,6 +99,40 @@ func contants() {
 	fmt.Println(s, c)
 }
 
+/**
+go语言没有特定的枚举类型关键字
+用常量的来定义
+*/
+func emuns() {
+	/*普通 枚举类型定义
+	const (
+		cpp    = 0
+		java   = 1
+		golang = 2
+	)*/
+	/** 自增值枚举类型
+	iota 表达式的作用是  变量自增
+	*/
+	const (
+		cpp = iota
+		java
+		golang
+	)
+
+	//用iota 表示 b kb mb gb tb pb
+	const (
+		b = 1 << (10 * iota)
+		kb
+		mb
+		gb
+		tb
+		pb
+	)
+
+	fmt.Println(cpp, java, golang)
+	fmt.Println(b, kb, mb, gb, tb, pb)
+}
+
 func main() {
 	/*fmt.Println("aaaaaa")
 	variableZeroValue()
@@ -109,4 +144,5 @@ func main() {
 	euler()
 	triangle()
 	contants()
+	emuns()
 }
