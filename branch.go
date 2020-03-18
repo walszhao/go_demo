@@ -32,7 +32,35 @@ func branchCondition() {
 	}
 }
 
+/**
+switch  语句
+go 语言的case 块不需要break 自动默认break
+*/
+func grade(sore int) string {
+	g := ""
+	switch {
+	case sore < 0 || sore > 100:
+		panic(fmt.Sprintf("Wrong sore: %d", sore))
+	case sore <= 60:
+		g = "F"
+	case sore <= 80:
+		g = "D"
+	case sore <= 90:
+		g = "B"
+	case sore <= 100:
+		g = "A"
+	}
+	return g
+
+}
+
 func main() {
 	//branch()
-	branchCondition()
+	//branchCondition()
+
+	fmt.Println(
+		grade(55),
+		//grade(-1),
+		grade(99))
+
 }
